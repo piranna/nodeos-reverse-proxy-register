@@ -1,0 +1,19 @@
+{
+  "name": "nodeos-reverse-proxy-register",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piranna/nodeos-reverse-proxy-register.git"
+  },
+  "author": "Jesús Leganés-Combarro 'piranna' <piranna@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piranna/nodeos-reverse-proxy-register/issues"
+  },
+  "homepage": "https://github.com/piranna/nodeos-reverse-proxy-register#readme"
+}
