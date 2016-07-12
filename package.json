@@ -2,7 +2,7 @@
   "name": "nodeos-reverse-proxy-register",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
