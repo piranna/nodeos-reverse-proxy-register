@@ -18,6 +18,8 @@ const Server_listen = net.Server.prototype.listen
 
 function toNumber(x) { return (x = Number(x)) >= 0 ? x : false; }
 
+const token = new WeakMap()
+
 
 net.Server.prototype.listen = function()
 {
@@ -30,7 +32,7 @@ net.Server.prototype.listen = function()
   if(port === 0 || port >= 1024) return Server_listen.apply(this, argv)
 
   if(typeof argv[argv.length-1] === 'function')
-    const lastArg = argv.pop()
+    const callback = argv.pop()
 
   // Set it to use a random free port and add a `listening` callback
   argv[0] = 0
@@ -54,9 +56,30 @@ net.Server.prototype.listen = function()
     {
       res.pipe(concat(function(token)
       {
-        Object.defineProperty(self, '_token', {value: token})
+        tokens.set(self, token)
 
-        if(lastArg) lastArg.call(self)
+        self.on('close', function()
+        {
+          const options =
+          {
+            method: 'POST',
+            hostname: '127.0.0.1',
+            path: '/_unregister'
+          }
+          const req =
+          {
+            pid: process.pid,
+            externalPort: port,
+            token: tokens.get(self)
+          }
+
+          request(options, function(res)
+          {
+            tokens.delete(self)
+          }).end(JSON.stringify(req))
+        })
+
+        if(callback) callback.call(self)
       }))
     }).end(JSON.stringify(req))
   })
