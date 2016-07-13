@@ -4,6 +4,7 @@
   "description": "",
   "main": "lib",
   "scripts": {
+    "coveralls": "scripts/coveralls",
     "test": "mocha"
   },
   "repository": {
@@ -17,7 +18,10 @@
   },
   "homepage": "https://github.com/piranna/nodeos-reverse-proxy-register#readme",
   "devDependencies": {
+    "coveralls": "^2.11.11",
+    "jscoverage": "github:piranna/jscoverage",
     "mocha": "^2.5.3",
+    "mocha-lcov-reporter": "^1.2.0",
     "nock": "^8.0.0",
     "uuid": "^2.0.2"
   },
