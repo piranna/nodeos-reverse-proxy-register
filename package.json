@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/piranna/nodeos-reverse-proxy-register/issues"
   },
-  "homepage": "https://github.com/piranna/nodeos-reverse-proxy-register#readme"
+  "homepage": "https://github.com/piranna/nodeos-reverse-proxy-register#readme",
+  "devDependencies": {
+    "mocha": "^2.5.3",
+    "nock": "^8.0.0",
+    "uuid": "^2.0.2"
+  },
+  "dependencies": {
+    "concat-stream": "^1.5.1"
+  }
 }
